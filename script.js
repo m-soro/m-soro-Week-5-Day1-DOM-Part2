@@ -60,9 +60,12 @@ topMenuEl.addEventListener("click", (event) => {
   event.preventDefault();
   let clicked = event.target.textContent;
   if (clicked === "about") mainEl.innerHTML = `<h1>about</h1>`;
-  console.log(`the element clicked is => ${clicked}`);
-
+  if (event.target.tagName === "A") {
+    //prettier-ignore
+    console.log(`An element from topMenuEl w/ tag name of A was clicked => ${clicked}`);
+  }
   topMenuLinks.forEach((link) => {
+    let isActive;
     if (link.textContent !== clicked) {
       link.classList.remove("active");
       showingSubMenu = false;
@@ -102,7 +105,7 @@ topMenuEl.addEventListener("click", (event) => {
   subMenuEl.addEventListener("click", (event) => {
     event.preventDefault();
     //prettier-ignore
-    console.log(`The element with tag name of => ${event.target.tagName} was clicked`);
+    console.log(`An element from subHeading w/ nodeName name of ${event.target.nodeName} was clicked => ${event.target.textContent}`);
     showingSubMenu = false;
     subMenuEl.style.top = "0";
     topMenuLinks.forEach((element) => {
