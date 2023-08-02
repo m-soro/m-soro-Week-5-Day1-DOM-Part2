@@ -46,6 +46,15 @@ menuLinks.forEach((element) => {
   topMenuEl.appendChild(linkTag);
 });
 
+/**
+ * ----------------
+ * START OF PART 2
+ * ----------------
+ * NOTE that I did not thoroughly follow the instruction.
+ * I was getting confused and I think this version
+ * works the way it suppose to work.
+ */
+
 const subMenuEl = document.querySelector("#sub-menu");
 subMenuEl.style.height = "100%";
 subMenuEl.style.backgroundColor = "var(--sub-menu-bg)";
@@ -65,21 +74,14 @@ topMenuEl.addEventListener("click", (event) => {
     console.log(`An element from topMenuEl w/ tag name of A was clicked => ${clicked}`);
   }
 
-  /**
-   * -----
-   * NOTE
-   * -----
-   * I didnt really follow the instructions thoroughly. It was confusing but I think I got it work
-   * the way it suppose to work.
-   */
-
   topMenuLinks.forEach((link) => {
     if (link.textContent !== clicked) {
       link.classList.remove("active");
       showingSubMenu = false;
       subMenuEl.style.top = "0";
     } else {
-      //in task 5.6, before 5.7, TO ACHIEVE "Clicking an "active" link should clear that link."
+      // @link https://ps-wise-course.herokuapp.com/18-week/mod-1/week-5/day-2/hw/#task-57
+      //in task 5.6, before 5.7, TO ACHIEVE => "Clicking an "active" link should clear that link."
       link.classList.toggle("active"); // I used TOGGLE instead of ADD
     }
   });
